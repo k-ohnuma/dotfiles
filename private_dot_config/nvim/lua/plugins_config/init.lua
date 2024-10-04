@@ -1,0 +1,16 @@
+-- mason, config, lspconfigは必ずこの順番で定義!!
+require("plugins_config.mason-lspconfig")
+require("plugins_config.cmp")
+require("plugins_config.lspconfig")
+
+require("plugins_config.barbar")
+require("plugins_config.copilot")
+require("plugins_config.gitsigns")
+require("plugins_config.lazygit")
+require("plugins_config.nvim-tree")
+require("plugins_config.replace")
+require("plugins_config.telescope")
+require("plugins_config.translator")
+require("plugins_config.treesitter")
+require("plugins_config.trouble")
+require("plugins_config.win_resizer")

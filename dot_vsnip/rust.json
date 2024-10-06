@@ -42,6 +42,38 @@
     ],
     "description": "Function to rotate a matrix 90 degrees clockwise"
   },
+  "_chmax": {
+    "prefix": "_chmax",
+    "body": [
+      "macro_rules! chmax {",
+      "    ($val: expr, $new: expr) => {",
+      "        if $val < $new {",
+      "            $val = $new;",
+      "            true",
+      "        } else {",
+      "            false",
+      "        }",
+      "    };",
+      "}"
+    ],
+    "description": "chmax"
+  },
+  "_chmin": {
+    "prefix": "_chmin",
+    "body": [
+      "macro_rules! chmax {",
+      "    ($val: expr, $new: expr) => {",
+      "        if $val > $new {",
+      "            $val = $new;",
+      "            true",
+      "        } else {",
+      "            false",
+      "        }",
+      "    };",
+      "}"
+    ],
+    "description": "chmin"
+  },
   "_hutarigumi_dfs": {
     "prefix": "_hutarigumi_dfs",
     "body": [
@@ -480,7 +512,7 @@
     "description": "4 directions didj"
   },
   "_didj8": {
-    "prefix": "_didj",
+    "prefix": "_didj8",
     "body": [
       "let didj = vec![(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)];"
     ],
@@ -498,5 +530,38 @@
       "let nj = nj as usize;"
     ],
     "description": "wakugai hantei"
+  },
+  "_ceil": {
+    "prefix": "_ceil",
+    "body": [
+      "let ceil = |a: usize, b: usize| {",
+      "    (a + b - 1) / b",
+      "};"
+    ],
+    "description": "Ceil calculation"
+  },
+  "_nc2": {
+    "prefix": "_nc2",
+    "body": [
+      "let nc2 = |n: usize| {",
+      "    if n <= 1 {",
+      "        return 0;",
+      "    }",
+      "    n * (n - 1) / 2",
+      "};"
+    ],
+    "description": "nc2 calculation"
+  },
+  "_nc3": {
+    "prefix": "_nc3",
+    "body": [
+      "let nc3 = |n: usize| {",
+      "    if n <= 2 {",
+      "        return 0;",
+      "    }",
+      "    n * (n - 1) * (n - 2) / 6",
+      "};"
+    ],
+    "description": "nc3 calculation"
   }
 }

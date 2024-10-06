@@ -1,13 +1,13 @@
 local cmp = require("cmp")
 require("CopilotChat").setup({
     show_help = "yes",
-    window = {
-      layout = 'float',
-      relative = 'cursor',
-      width = 1,
-      height = 0.4,
-      row = 1
-    },
+    -- window = {
+    --   layout = 'float',
+    --   relative = 'cursor',
+    --   width = 1,
+    --   height = 0.4,
+    --   row = 1
+    -- },
     prompts = {
         Explain = {
             prompt = "/COPILOT_EXPLAIN 上記のコードを猫になりきって日本語で説明してください",

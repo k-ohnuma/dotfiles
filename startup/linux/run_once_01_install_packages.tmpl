@@ -1,0 +1,48 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" }}
+
+{{ if eq .chezmoi.osRelease.id "ubuntu" }}
+
+#############################
+# install cmd
+#############################
+
+apt update
+apt install -y \
+  bat \
+  curl \
+  fd-find \
+  fzf \
+  git \
+  gh \
+  neofetch \
+  nnn \
+  ripgrep \
+  thefuck \
+  tldr \
+  tmux \
+  tmuxinator \
+  wget \
+  httpie \
+  tar \
+  vim
+
+
+#############################
+# nvim build
+# version: 0.10.2
+#############################
+
+curl -LO https://github.com/neovim/neovim/releases/download/v0.10.2/nvim-linux64.tar.gz
+tar xzvf nvim-linux64.tar.gz
+
+git clone https://github.com/neovim/neovim --depth=1
+cd neovim
+apt install -y libtool autoconf automake make cmake libncurses5-dev g++ gettext
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+make install
+
+{{ end }}
+
+{{ end }}

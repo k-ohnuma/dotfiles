@@ -1,0 +1,53 @@
+[atcoder]
+submit_via_binary = false # submit via binary by default
+use_cross = false         # use `cross` instead of `cargo` when generating binaries
+binary_column = 80        # maximum column number of generated binary (0 for no wrapping)
+update_interval = 1000    # interval time of fetching result (ms)
+strip_path = "strip"      # specify `strip` command path. NOTE: if you use macOS, you have to install GNU strip and specify its path here.
+
+[profile]
+# target to use to generate binary
+target = "x86_64-unknown-linux-musl"
+
+[profile.release]
+lto = true
+panic = 'abort'
+
+# dependencies added to new project
+[dependencies]
+ac-library-rs = "0.1.1"
+itertools = "0.12.1"
+num = "0.4.1"
+num-bigint = "0.4.4"
+num-decimal = "0.2.5"
+proconio = "0.4.5"
+rust_decimal = "1.34.3"
+superslice = "1.0.0"
+regex = "1.10.4"
+
+
+[project]
+# to create `rust-toolchain` file, uncomment this line.
+# rustc_version = "1.15.1"
+
+# source code template
+template = """
+#![allow(unused_imports)]
+#![allow(unused_macros)]
+// #![allow(unused_variables)]
+
+use ac_library::*;
+use itertools::{iproduct, izip, join, sorted, Combinations, Itertools, MultiProduct, Permutations};
+use proconio::{input,marker::{Chars, Usize1}};
+use std::{cmp::*,collections::*,f64::consts::E};
+use superslice::Ext;
+use regex::Regex;
+use num::{integer, pow::Pow, BigInt};
+use num_bigint::BigUint;
+
+fn main() {
+    input! {
+
+    }
+}
+"""

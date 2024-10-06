@@ -33,17 +33,13 @@ regex = "1.10.4"
 # source code template
 template = """
 #![allow(unused_imports)]
-#![allow(unused_macros)]
-// #![allow(unused_variables)]
 
 use ac_library::*;
-use itertools::{iproduct, izip, join, sorted, Combinations, Itertools, MultiProduct, Permutations};
+use itertools::{join, Combinations, Itertools, MultiProduct, Permutations};
 use proconio::{input,marker::{Chars, Usize1}};
-use std::{cmp::*,collections::*,f64::consts::E};
+use std::{cmp::*,collections::*};
 use superslice::Ext;
 use regex::Regex;
-use num::{integer, pow::Pow, BigInt};
-use num_bigint::BigUint;
 
 fn main() {
     input! {

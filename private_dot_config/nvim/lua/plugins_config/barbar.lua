@@ -1,44 +1,44 @@
 vim.g.barbar_auto_setup = false -- disable auto-setup
-require'barbar'.setup {
+require("barbar").setup({
   animation = false,
   auto_hide = false,
   tabpages = true,
   clickable = true,
-  exclude_ft = {'javascript'},
-  exclude_name = {'package.json'},
-  focus_on_close = 'left',
-  hide = {extensions = false, inactive = false},
+  exclude_ft = { "javascript" },
+  exclude_name = { "package.json" },
+  focus_on_close = "left",
+  hide = { extensions = false, inactive = false },
   highlight_alternate = true,
   highlight_inactive_file_icons = false,
   highlight_visible = true,
   icons = {
     buffer_index = false,
     buffer_number = false,
-    button = '',
+    button = "",
     diagnostics = {
-      [vim.diagnostic.severity.ERROR] = {enabled = true},
-      [vim.diagnostic.severity.WARN] = {enabled = true},
-      [vim.diagnostic.severity.INFO] = {enabled = true},
-      [vim.diagnostic.severity.HINT] = {enabled = true},
+      [vim.diagnostic.severity.ERROR] = { enabled = true },
+      [vim.diagnostic.severity.WARN] = { enabled = true },
+      [vim.diagnostic.severity.INFO] = { enabled = true },
+      [vim.diagnostic.severity.HINT] = { enabled = true },
     },
     gitsigns = {
-      added = {enabled = true, icon = '+'},
-      changed = {enabled = true, icon = '~'},
-      deleted = {enabled = true, icon = '-'},
+      added = { enabled = true, icon = "+" },
+      changed = { enabled = true, icon = "~" },
+      deleted = { enabled = true, icon = "-" },
     },
     filetype = {
       custom_colors = false,
       enabled = true,
     },
-    separator = {left = '▎', right = ''},
+    separator = { left = "▎", right = "" },
     separator_at_end = true,
-    modified = {button = '●'},
-    pinned = {button = '', filename = true},
-    preset = 'default',
-    alternate = {filetype = {enabled = false}},
-    current = {buffer_index = true},
-    inactive = {button = '×'},
-    visible = {modified = {buffer_number = false}},
+    modified = { button = "●" },
+    pinned = { button = "", filename = true },
+    preset = "default",
+    alternate = { filetype = { enabled = false } },
+    current = { buffer_index = true },
+    inactive = { button = "×" },
+    visible = { modified = { buffer_number = false } },
   },
   insert_at_end = false,
   insert_at_start = false,
@@ -50,14 +50,12 @@ require'barbar'.setup {
   sidebar_filetypes = {
     NvimTree = true,
     undotree = {
-      text = 'undotree',
-      align = 'center', -- *optionally* specify an alignment (either 'left', 'center', or 'right')
+      text = "undotree",
+      align = "center", -- *optionally* specify an alignment (either 'left', 'center', or 'right')
     },
-    ['neo-tree'] = {event = 'BufWipeout'},
-    Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
+    ["neo-tree"] = { event = "BufWipeout" },
+    Outline = { event = "BufWinLeave", text = "symbols-outline", align = "right" },
   },
-  letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
+  letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
   no_name_title = nil,
-}
-
-
+})

@@ -2,6 +2,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    event = "VeryLazy",
     config = function()
       require("toggleterm").setup({
         open_mapping = [[<c-t>]],
@@ -11,6 +12,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.6",
+    cmd = 'Telescope',
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("plugins_config.telescope")
@@ -18,10 +20,12 @@ return {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
     build = "make",
   },
   {
     "FotiadisM/tabset.nvim",
+    event = 'BufRead',
     config = function()
       require("tabset").setup({
         defaults = {

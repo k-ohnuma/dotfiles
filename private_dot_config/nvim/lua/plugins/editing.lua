@@ -43,17 +43,19 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    event = "BufRead",
     config = function()
       require("nvim-surround").setup()
     end,
   },
   {
     "kana/vim-operator-replace",
+    event = "BufRead",
     dependencies = { "kana/vim-operator-user" },
   },
   {
     "tpope/vim-commentary",
+    event = "BufRead",
   },
   {
     "vim-scripts/vim-auto-save",
@@ -64,7 +66,7 @@ return {
   },
   {
     "Wansmer/treesj",
-    lazy = true,
+    event = "BufRead",
     keys = { "<space>m", "<space>j", "<space>s" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()

@@ -1,0 +1,3 @@
+return {
+    "samharju/synthweave.nvim",
+}

@@ -1,4 +1,7 @@
 return {
   'nvim-telescope/telescope.nvim', tag = '0.1.6',
-  dependencies = { 'nvim-lua/plenary.nvim' }
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  config = function()
+    require('plugins_config.telescope')
+  end
 }

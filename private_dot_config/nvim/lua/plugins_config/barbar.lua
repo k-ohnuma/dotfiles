@@ -1,5 +1,4 @@
 vim.g.barbar_auto_setup = false -- disable auto-setup
-
 require'barbar'.setup {
   animation = false,
   auto_hide = false,
@@ -60,9 +59,5 @@ require'barbar'.setup {
   letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
   no_name_title = nil,
 }
-vim.api.nvim_set_keymap('n', '<Leader>y', ':BufferPrevious<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>u', ':BufferNext<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>bw', ':BufferClose<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>bo', ':BufferCloseAllButCurrent<CR>', { noremap = true })
 
 

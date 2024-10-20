@@ -12,7 +12,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.6",
-    cmd = 'Telescope',
+    cmd = "Telescope",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("plugins_config.telescope")
@@ -25,7 +25,7 @@ return {
   },
   {
     "FotiadisM/tabset.nvim",
-    event = 'BufRead',
+    event = "BufRead",
     config = function()
       require("tabset").setup({
         defaults = {

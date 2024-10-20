@@ -13,7 +13,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    event = 'BufRead',
+    event = "BufRead",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("lualine").setup()
@@ -21,7 +21,7 @@ return {
   },
   {
     "simeji/winresizer",
-    cmd = 'WinResizerStartResize'
+    cmd = "WinResizerStartResize",
   },
   {
     "nvim-tree/nvim-tree.lua",

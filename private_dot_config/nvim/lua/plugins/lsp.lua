@@ -10,14 +10,14 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/vim-vsnip",
     },
-    event = 'InsertEnter',
+    event = "InsertEnter",
     config = function()
       require("plugins_config.cmp")
     end,
   },
   {
     "williamboman/mason.nvim",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("mason").setup({
         ensure_installed = {
@@ -28,7 +28,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
@@ -39,11 +39,11 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+    cmd = { "LspInfo", "LspInstall", "LspStart" },
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = 'BufRead',
+    event = "BufRead",
     opts = {
       toggle_key = "<c-f>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
       toggle_key_flip_floatwin_setting = true,
@@ -54,7 +54,7 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    event = 'BufRead',
+    event = "BufRead",
     config = function()
       require("plugins_config.fidget")
     end,
@@ -62,14 +62,14 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = 'Trouble',
+    cmd = "Trouble",
     config = function()
       require("plugins_config.trouble")
     end,
   },
   {
     "nvimdev/lspsaga.nvim",
-    event = 'BufRead',
+    event = "BufRead",
     config = function()
       require("plugins_config.lspsaga")
     end,

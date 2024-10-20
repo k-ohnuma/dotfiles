@@ -9,7 +9,7 @@ return {
     opts = {
       debug = true, -- Enable debugging
     },
-    cmd = {'CopilotChat', 'CopilotChatOpen', 'CopilotChatExplain', 'CopilotChatFix', 'CopilotChatReview'},
+    cmd = { "CopilotChat", "CopilotChatOpen", "CopilotChatExplain", "CopilotChatFix", "CopilotChatReview" },
     config = function()
       require("plugins_config.copilot")
     end,
@@ -27,7 +27,7 @@ return {
   },
   {
     "voldikss/vim-translator",
-    cmd = {'Translate', 'TranslateH', 'TranslateL', 'TranslateR', 'TranslateW', 'TranslateX'},
+    cmd = { "Translate", "TranslateH", "TranslateL", "TranslateR", "TranslateW", "TranslateX" },
     config = function()
       require("plugins_config.translator")
     end,

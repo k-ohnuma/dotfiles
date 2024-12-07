@@ -1,0 +1,31 @@
+[user]
+  name = <set>
+  email = <set>
+
+[http]
+  postBuffer = 500M
+  maxRequestBuffer = 100M
+
+[cure]
+  compression = 0
+
+[alias]
+  st = status
+  ss = status -s
+  ad = add
+  cm = commit
+  stt = status -uno
+  df = diff --color-words
+  dc = diff --cached
+  dp = diff --no-prefix
+  d1 = diff HEAD~
+  d2 = diff HEAD~~
+  d3 = diff HEAD~~~
+  d4 = diff HEAD~~~~
+  co = checkout
+  cob = checkout -b
+  br = branch
+  f = fetch
+  rb = rebase
+  amd = commit --amend --no-edit
+  rst1 = reset --soft HEAD~1

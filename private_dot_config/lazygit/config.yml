@@ -1,0 +1,7 @@
+git:
+  overrideGpg: true
+
+gui:
+  language: "ja"
+  showIcons: true
+

@@ -42,3 +42,4 @@ fn main() {
 }
 """
 
+# ln -s ~/.config/cargo-atcoder.toml ./Library/Application\ Support/cargo-atcoder.toml

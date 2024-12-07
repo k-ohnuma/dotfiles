@@ -1,6 +1,7 @@
 [user]
   name = <set>
   email = <set>
+  signingkey = "~/.ssh/id_ed25519.pub"
 
 [http]
   postBuffer = 500M
@@ -8,6 +9,11 @@
 
 [cure]
   compression = 0
+
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = /Users/user/.ssh/allowed_signers
 
 [alias]
   st = status

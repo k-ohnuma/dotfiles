@@ -1,11 +1,11 @@
 -- ── def settings ────────────────────────────────────────────────────
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("i", "jk", "<ESC>", opts) -- Normal mode with jk.
+vim.api.nvim_set_keymap("i", "jk", "<ESC>", opts)
 vim.api.nvim_set_keymap("i", "jK", "<ESC>", opts)
 vim.api.nvim_set_keymap("i", "JK", "<ESC>", opts)
 vim.api.nvim_set_keymap("i", "Jk", "<ESC>", opts)
-vim.api.nvim_set_keymap("n", "H", "^", opts) -- H to the beginning of the line
-vim.api.nvim_set_keymap("n", "L", "$", opts) -- L to the end of the line
+vim.api.nvim_set_keymap("n", "H", "^", opts)
+vim.api.nvim_set_keymap("n", "L", "$", opts)
 vim.api.nvim_set_keymap("v", "H", "^", opts)
 vim.api.nvim_set_keymap("v", "L", "$", opts)
 vim.api.nvim_set_keymap("n", "<Leader>o", "o<Esc>", opts)
@@ -22,7 +22,7 @@ vim.api.nvim_set_keymap("v", "K", "10kzz", opts)
 vim.api.nvim_set_keymap("n", "j", "gj", opts)
 vim.api.nvim_set_keymap("n", "k", "gk", opts)
 vim.api.nvim_set_keymap("n", "<c-x>", "<c-v>", opts)
-vim.api.nvim_set_keymap("n", "ya", ":%y<CR>", opts) -- yank current buffer
+vim.api.nvim_set_keymap("n", "ya", ":%y<CR>", opts)
 
 
 -- ── nvim-tree ───────────────────────────────────────────────────────
@@ -129,6 +129,8 @@ local keymap = vim.keymap.set
 keymap({"n", "v"}, "<Leader>cb", "<Cmd>CBllbox<CR>", opts)
 keymap({"n", "v"}, "<Leader>cl", "<Cmd>CBllline<CR>", opts)
 
+-- ── auto-pairs ──────────────────────────────────────────────────────
+
 -- Enter をすべて nvim-autopairs に関連付ける
 vim.api.nvim_set_keymap("i", "<CR>", "v:lua.require('nvim-autopairs').autopairs_cr()", { expr = true, noremap = true })
 
@@ -139,15 +141,13 @@ local Rule = require('nvim-autopairs.rule')
 local cond = require("nvim-autopairs.conds")
 
 npairs.setup({
-  -- デフォルト設定
-  check_ts = true, -- treesitterとの連携を有効にする場合
+  check_ts = true,
 })
 
-
 npairs.add_rules({
-	Rule("<", ">"):with_pair(cond.before_regex("%a+")):with_move(function(opts)
-		return opts.char == ">"
-	end),
+  Rule("<", ">"):with_pair(cond.before_regex("%a+")):with_move(function(opts)
+    return opts.char == ">"
+  end),
 })
 
 

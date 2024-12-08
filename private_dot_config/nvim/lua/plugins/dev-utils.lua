@@ -7,10 +7,4 @@ return {
       require("plugins_config.translator")
     end,
   },
-  -- {
-  --   "simrat39/rust-tools.nvim",
-  -- },
-  -- {
-  --   "rust-lang/rust.vim",
-  -- },
 }

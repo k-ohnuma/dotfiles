@@ -1,13 +1,12 @@
 return {
   {
     "romgrk/barbar.nvim",
-    -- event = {'BufNewFile', 'BufRead'},
     dependencies = {
       "lewis6991/gitsigns.nvim",
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      vim.g.barbar_auto_setup = false -- disable auto-setup
+      vim.g.barbar_auto_setup = false
       require("plugins_config.barbar")
     end,
   },
@@ -44,7 +43,4 @@ return {
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
     },
   },
-  -- {
-  --   "folke/zen-mode.nvim",
-  -- }
 }

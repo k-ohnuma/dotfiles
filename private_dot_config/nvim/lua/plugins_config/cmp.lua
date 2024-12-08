@@ -11,7 +11,6 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" }, -- from language server
-    -- { name = "copilot" }, --copilotを補完ソースに追加する
     { name = "vsnip" }, -- nvim-cmp source for vim-vsnip
     { name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
     { name = "nvim_lua", keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*

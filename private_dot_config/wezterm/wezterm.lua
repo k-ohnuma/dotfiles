@@ -42,39 +42,23 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
 -- キーバインド
 config.keys = {
+  -- ペイン
+  {
+    key = "\\",
+    mods = "LEADER",
+    action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
+  },
+  {
+    key = "-",
+    mods = "LEADER",
+    action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+  },
+  -- これ設定しないとバックスラッシュがうまくいかん
   {
     key = "¥",
     action = wezterm.action.SendKey({ key = "\\" }),
   },
-  {
-    key = "+",
-    mods = "CMD|SHIFT",
-    action = wezterm.action.IncreaseFontSize,
-  },
-  -- ⌘ w でペインを閉じる（デフォルトではタブが閉じる）
-  {
-    key = "w",
-    mods = "CMD",
-    action = wezterm.action.CloseCurrentPane({ confirm = false }),
-  },
-  -- ⌘ Ctrl ,で下方向にペイン分割
-  {
-    key = ",",
-    mods = "CMD|CTRL",
-    action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
-  },
-  -- ⌘ Ctrl .で右方向にペイン分割
-  {
-    key = ".",
-    mods = "CMD|CTRL",
-    action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
-  },
-  -- ⌘ Ctrl oでペインの中身を入れ替える
-  {
-    key = "o",
-    mods = "CMD|CTRL",
-    action = wezterm.action.RotatePanes("Clockwise"),
-  },
+  -- ペイン移動
   {
     key = "h",
     mods = "ALT",
@@ -95,6 +79,24 @@ config.keys = {
     mods = "ALT",
     action = wezterm.action.ActivatePaneDirection("Right"),
   },
+  -- ペイン入れ替え
+  {
+    key = "o",
+    mods = "SHIFT|CTRL",
+    action = wezterm.action.RotatePanes("Clockwise"),
+  },
+  {
+    key = "+",
+    mods = "CMD|SHIFT",
+    action = wezterm.action.IncreaseFontSize,
+  },
+  -- ペイン閉じる
+  {
+    key = "w",
+    mods = "CMD",
+    action = wezterm.action.CloseCurrentPane({ confirm = false }),
+  },
+  -- 大きさ調節
   {
     key = "h",
     mods = "CMD|CTRL|SHIFT",
@@ -115,19 +117,7 @@ config.keys = {
     mods = "CMD|CTRL|SHIFT",
     action = wezterm.action.AdjustPaneSize({ "Right", 2 }),
   },
-  {
-    key = "\\",
-    mods = "LEADER",
-    action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
-  },
-  {
-    key = "-",
-    mods = "LEADER",
-    action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
-  },
   { key = "[", mods = "LEADER", action = act.ActivateCopyMode },
-  { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
-  { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
 }
 
 key_tables = {
@@ -136,38 +126,26 @@ key_tables = {
     { key = "j", mods = "NONE", action = act.CopyMode("MoveDown") },
     { key = "k", mods = "NONE", action = act.CopyMode("MoveUp") },
     { key = "l", mods = "NONE", action = act.CopyMode("MoveRight") },
-    -- 最初と最後に移動
     { key = "^", mods = "NONE", action = act.CopyMode("MoveToStartOfLineContent") },
     { key = "$", mods = "NONE", action = act.CopyMode("MoveToEndOfLineContent") },
-    -- 左端に移動
     { key = "0", mods = "NONE", action = act.CopyMode("MoveToStartOfLine") },
     { key = "o", mods = "NONE", action = act.CopyMode("MoveToSelectionOtherEnd") },
     { key = "O", mods = "NONE", action = act.CopyMode("MoveToSelectionOtherEndHoriz") },
-    --
     { key = ";", mods = "NONE", action = act.CopyMode("JumpAgain") },
-    -- 単語ごと移動
     { key = "w", mods = "NONE", action = act.CopyMode("MoveForwardWord") },
     { key = "b", mods = "NONE", action = act.CopyMode("MoveBackwardWord") },
     { key = "e", mods = "NONE", action = act.CopyMode("MoveForwardWordEnd") },
-    -- ジャンプ機能 t f
     { key = "t", mods = "NONE", action = act.CopyMode({ JumpForward = { prev_char = true } }) },
     { key = "f", mods = "NONE", action = act.CopyMode({ JumpForward = { prev_char = false } }) },
     { key = "T", mods = "NONE", action = act.CopyMode({ JumpBackward = { prev_char = true } }) },
     { key = "F", mods = "NONE", action = act.CopyMode({ JumpBackward = { prev_char = false } }) },
-    -- 一番下へ
     { key = "G", mods = "NONE", action = act.CopyMode("MoveToScrollbackBottom") },
-    -- 一番上へ
     { key = "g", mods = "NONE", action = act.CopyMode("MoveToScrollbackTop") },
-    -- viweport
     { key = "H", mods = "NONE", action = act.CopyMode("MoveToViewportTop") },
     { key = "L", mods = "NONE", action = act.CopyMode("MoveToViewportBottom") },
     { key = "M", mods = "NONE", action = act.CopyMode("MoveToViewportMiddle") },
-    -- スクロール
-    { key = "b", mods = "CTRL", action = act.CopyMode("PageUp") },
-    { key = "f", mods = "CTRL", action = act.CopyMode("PageDown") },
     { key = "d", mods = "CTRL", action = act.CopyMode({ MoveByPage = 0.5 }) },
     { key = "u", mods = "CTRL", action = act.CopyMode({ MoveByPage = -0.5 }) },
-    -- 範囲選択モード
     { key = "v", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Cell" }) },
     { key = "v", mods = "CTRL", action = act.CopyMode({ SetSelectionMode = "Block" }) },
     { key = "V", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Line" }) },
@@ -178,22 +156,17 @@ key_tables = {
       action = act.Multiple({ { CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } }),
     },
     { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
-    { key = "c", mods = "CTRL", action = act.CopyMode("Close") },
     { key = "q", mods = "NONE", action = act.CopyMode("Close") },
   },
 }
 
--- マウス操作の挙動設定
+-- 右クリックでコピー
 config.mouse_bindings = {
-  -- 右クリックでクリップボードから貼り付け
   {
     event = { Down = { streak = 1, button = "Right" } },
     mods = "NONE",
     action = act.CopyTo("Clipboard"),
   },
 }
-
--- タブを下に表示（デフォルトでは上にある）
-config.tab_bar_at_bottom = false
 
 return config

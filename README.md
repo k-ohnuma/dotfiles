@@ -1,11 +1,12 @@
 ## how to setup
 
-```
-# install curl
-apt update && apt install -y curl
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+### brew setup
 
+`https://brew.sh/ja/` をみてね！
+
+### chezmoi setup
+
+```
 # install chezmoi
 sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b ~/.local/bin
 
@@ -15,3 +16,4 @@ chezmoi --version
 # apply chezmoi
 chezmoi init --apply <this repo url>
 ```
+

@@ -1,0 +1,71 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" }}
+
+{{ if eq .chezmoi.osRelease.id "ubuntu" }}
+
+## ╭─────────────────────────────────────────────────────────╮
+## │ install cmd                                             │
+## ╰─────────────────────────────────────────────────────────╯
+
+apt update
+apt install -y \
+  bat \
+  curl \
+  fd-find \
+  fzf \
+  git \
+  neofetch \
+  nnn \
+  ripgrep \
+  tldr \
+  tmux \
+  tmuxinator \
+  wget \
+  httpie \
+  tar \
+  vim \
+  fish
+
+
+## ╭─────────────────────────────────────────────────────────╮
+## │ # change default shell: fish                            │
+## ╰─────────────────────────────────────────────────────────╯
+
+if [ "$SHELL" != "$(command -v fish)" ]; then
+    echo "Changing default shell to fish..."
+    chsh -s "$(command -v fish)"
+else
+    echo "Default shell is already set to fish."
+fi
+
+## ╭─────────────────────────────────────────────────────────╮
+## │ install homebrew                                        │
+## ╰─────────────────────────────────────────────────────────╯
+
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Homebrew is not installed. Installing Homebrew..."
+    CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    sudo apt-get install build-essential
+    brew install gcc
+else
+    echo "Homebrew is already installed."
+fi
+
+
+## ╭─────────────────────────────────────────────────────────╮
+## │ nvim build                                              │
+## │ version: 0.10.2                                         │
+## ╰─────────────────────────────────────────────────────────╯
+
+curl -LO https://github.com/neovim/neovim/releases/download/v0.10.2/nvim-linux64.tar.gz
+tar xzvf nvim-linux64.tar.gz
+mkdir -p ~/.local/bin/ && mv nvim-linux64 ~/.local/bin/
+ln -s ~/.local/bin/nvim-linux64/bin/nvim ~/.local/bin/nvim
+rm nvim-linux64.tar.gz
+fish -c "fish_add_path ~/.local/bin/"
+
+{{ end }}
+
+{{ end }}

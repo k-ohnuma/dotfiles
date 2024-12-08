@@ -81,6 +81,6 @@ return {
     end,
   },
   {
-    "LudoPinelli/comment-box.nvim"
-  }
+    "LudoPinelli/comment-box.nvim",
+  },
 }

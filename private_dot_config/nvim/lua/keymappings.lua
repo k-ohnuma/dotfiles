@@ -24,7 +24,6 @@ vim.api.nvim_set_keymap("n", "k", "gk", opts)
 vim.api.nvim_set_keymap("n", "<c-x>", "<c-v>", opts)
 vim.api.nvim_set_keymap("n", "ya", ":%y<CR>", opts)
 
-
 -- ── nvim-tree ───────────────────────────────────────────────────────
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
@@ -126,8 +125,8 @@ vim.api.nvim_set_keymap(
 
 -- ── comment-box ─────────────────────────────────────────────────────
 local keymap = vim.keymap.set
-keymap({"n", "v"}, "<Leader>cb", "<Cmd>CBllbox<CR>", opts)
-keymap({"n", "v"}, "<Leader>cl", "<Cmd>CBllline<CR>", opts)
+keymap({ "n", "v" }, "<Leader>cb", "<Cmd>CBllbox<CR>", opts)
+keymap({ "n", "v" }, "<Leader>cl", "<Cmd>CBllline<CR>", opts)
 
 -- ── auto-pairs ──────────────────────────────────────────────────────
 
@@ -136,8 +135,8 @@ vim.api.nvim_set_keymap("i", "<CR>", "v:lua.require('nvim-autopairs').autopairs_
 
 -- 純粋な改行を Shift+Enter にマッピング
 vim.api.nvim_set_keymap("i", "<S-CR>", "<CR>", { noremap = true, silent = true })
-local npairs = require('nvim-autopairs')
-local Rule = require('nvim-autopairs.rule')
+local npairs = require("nvim-autopairs")
+local Rule = require("nvim-autopairs.rule")
 local cond = require("nvim-autopairs.conds")
 
 npairs.setup({
@@ -149,5 +148,3 @@ npairs.add_rules({
     return opts.char == ">"
   end),
 })
-
-

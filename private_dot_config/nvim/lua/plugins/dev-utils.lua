@@ -1,4 +1,3 @@
-
 return {
   {
     "voldikss/vim-translator",

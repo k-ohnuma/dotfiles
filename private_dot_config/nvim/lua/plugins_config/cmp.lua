@@ -27,14 +27,14 @@ cmp.setup({
   }),
   window = {
     completion = cmp.config.window.bordered({
-      border = 'rounded',
+      border = "rounded",
       winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
       col_offset = 0,
       side_padding = 1,
       max_width = 80, -- 最大幅
       max_height = 20, -- 最大高さ
     }),
-  },    
+  },
   -- experimental = {
   --   ghost_text = true,
   -- },
@@ -59,4 +59,3 @@ cmp.setup({
     end),
   },
 })
-

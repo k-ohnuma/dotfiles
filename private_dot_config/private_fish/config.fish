@@ -15,6 +15,7 @@ set -x PATH "$HOME/.local/bin" $PATH
 
 set -x PATH "/Applications/WezTerm.app/Contents/MacOS" $PATH
 
+source ~/.asdf/asdf.fish
 
 for mode in default insert visua
   fish_default_key_bindings -M $mode

@@ -27,6 +27,9 @@ vim.api.nvim_set_keymap("n", "ya", ":%y<CR>", opts)
 -- ── nvim-tree ───────────────────────────────────────────────────────
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
+-- ── none-ls ─────────────────────────────────────────────────────────
+vim.keymap.set('n', '<leader>;', function() vim.lsp.buf.format { async = true } end)
+
 -- ── trouble ─────────────────────────────────────────────────────────
 vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>Trouble diagnostics toggle<cr>", { noremap = true, silent = true })
 

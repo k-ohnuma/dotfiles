@@ -23,6 +23,7 @@ return {
         ensure_installed = {
           "rust-analyzer",
         },
+        PATH = "append"
       })
     end,
   },
@@ -40,6 +41,15 @@ return {
   {
     "neovim/nvim-lspconfig",
     cmd = { "LspInfo", "LspInstall", "LspStart" },
+  },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    event = "BufRead",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+      'jay-babu/mason-null-ls.nvim',
+    },
   },
   {
     "ray-x/lsp_signature.nvim",

@@ -13,7 +13,13 @@ end
 
 require("nvim-tree").setup({
   filters = {
-    enable = false,
+    custom = {
+      "^\\.git$",
+      "^node_modules$",
+      "^cdk\\.out$",
+      "^\\.storage$",
+      "^target$",
+    },
   },
   view = { adaptive_size = true },
   on_attach = my_on_attach,

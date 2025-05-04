@@ -11,8 +11,20 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
+
+
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+require("mason-lspconfig").setup_handlers({
+  function(server)
+    local opt = {
+      capabilities = capabilities,
+    }
+    require("lspconfig")[server].setup({ opt })
+  end,
+})
+
 lspconfig.rust_analyzer.setup({
   on_attach = function(client, bufnr)
     vim.lsp.inlay_hint.enable(true)
@@ -27,18 +39,44 @@ lspconfig.rust_analyzer.setup({
   },
 })
 
-require('mason-null-ls').setup({
-    ensure_installed = { 'rustfmt' },
-    handlers = {},
+require("mason-null-ls").setup({
+  ensure_installed = { "rustfmt" },
+  handlers = {},
 })
 
-local status, null_ls = pcall(require, 'null-ls')
-if (not status) then return end
+local status, null_ls = pcall(require, "null-ls")
+if not status then
+  return
+end
 
 null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.rustfmt,
-    },
-    debug = false,
+  sources = {
+    null_ls.builtins.formatting.rustfmt,
+  },
+  debug = false,
 })
 
+local ts_attach = function(client, bufnr)
+  -- if client.server_capabilities.inlayHintProvider then
+  --   vim.lsp.inlay_hint.enable(true, {  bufnr })
+  -- end
+  client.server_capabilities.semanticTokensProvider = nil
+end
+
+lspconfig.ts_ls.setup({
+  on_init = function(client, initialization_result)
+    if client.server_capabilities then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
+    end
+  end,
+  capabilities = capabilities,
+  filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  settings = {
+    diagnostics = { ignoredCodes = { 6133 } },
+    completions = {
+      completeFunctionCalls = true, 
+    },
+  },
+  on_attach = ts_attach,
+})

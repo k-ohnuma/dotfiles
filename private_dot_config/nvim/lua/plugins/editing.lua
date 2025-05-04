@@ -83,4 +83,7 @@ return {
   {
     "LudoPinelli/comment-box.nvim",
   },
+  {
+    "djoshea/vim-autoread"
+  }
 }

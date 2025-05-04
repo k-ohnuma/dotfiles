@@ -1,0 +1,13 @@
+{
+  "_init_lambda_handler": {
+    "prefix": "_init_lambda_handler",
+    "body": [
+      "import { Handler } from \"aws-lambda\";",
+      "",
+      "export const handler: Handler = async (_event) => {",
+      "  return 0;",
+      "};"
+    ],
+    "description": ""
+  }
+}

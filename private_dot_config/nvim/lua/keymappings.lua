@@ -21,8 +21,8 @@ vim.api.nvim_set_keymap("v", "J", "10jzz", opts)
 vim.api.nvim_set_keymap("v", "K", "10kzz", opts)
 vim.api.nvim_set_keymap("n", "j", "gj", opts)
 vim.api.nvim_set_keymap("n", "k", "gk", opts)
-vim.api.nvim_set_keymap("n", "<c-x>", "<c-v>", opts)
 vim.api.nvim_set_keymap("n", "ya", ":%y<CR>", opts)
+vim.keymap.set("v", "v", "<C-v>", { noremap = true })
 
 -- ── nvim-tree ───────────────────────────────────────────────────────
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
@@ -109,6 +109,25 @@ function _lazygit_toggle()
 end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
+local floatterm = Terminal:new({
+  cmd = "fish",
+  direction = "float",
+  float_opts = {
+    border = "double",
+  },
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+  end,
+  on_close = function(term)
+    vim.cmd("startinsert!")
+  end,
+})
+function _floatterm_toggle()
+  floatterm:toggle()
+end
+vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>lua _floatterm_toggle()<CR>", { noremap = true, silent = true })
+
 -- ── copilot chat ────────────────────────────────────────────────────
 function CopilotChatBuffer()
   local input = vim.fn.input("Quick Chat: ")
@@ -153,3 +172,11 @@ npairs.add_rules({
     return opts.char == ">"
   end),
 })
+local gitsigns = require("gitsigns")
+keymap("v", "<leader>sh", function()
+  gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end)
+
+keymap("v", "<leader>rh", function()
+  gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end)

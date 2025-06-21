@@ -11,8 +11,6 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
-
-
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -75,7 +73,7 @@ lspconfig.ts_ls.setup({
   settings = {
     diagnostics = { ignoredCodes = { 6133 } },
     completions = {
-      completeFunctionCalls = true, 
+      completeFunctionCalls = true,
     },
   },
   on_attach = ts_attach,

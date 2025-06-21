@@ -6,7 +6,7 @@ require("catppuccin").setup({
   no_italic = true, -- Force no italic
   no_bold = false, -- Force no bold
   dim_inactive = {
-    enabled = true, -- dims the background color of inactive window
+    enabled = false, -- dims the background color of inactive window
     shade = "dark",
     percentage = 0.15, -- percentage of the shade to apply to the inactive window
   },
@@ -23,6 +23,18 @@ require("catppuccin").setup({
       indentscope_color = "",
     },
   },
+  custom_highlights = function(colors)
+    return {
+      Operator = { fg = colors.mauve },
+    }
+  end,
+})
+
+require("tint").setup({
+  tint = -50,
+  saturation = 0.5,
+  tint_background_colors = false,
 })
 
 vim.cmd([[colorscheme catppuccin]])
+-- vim.cmd([[colorscheme cyberdream]])

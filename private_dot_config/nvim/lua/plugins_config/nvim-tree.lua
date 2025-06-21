@@ -18,8 +18,11 @@ require("nvim-tree").setup({
       "^node_modules$",
       "^cdk\\.out$",
       "^\\.storage$",
-      "^target$",
+      -- "^target$",
     },
+  },
+  git = {
+    ignore = false,
   },
   view = { adaptive_size = true },
   on_attach = my_on_attach,

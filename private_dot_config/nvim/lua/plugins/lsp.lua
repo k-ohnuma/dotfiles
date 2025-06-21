@@ -17,6 +17,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    version = "^1.0.0",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("mason").setup({
@@ -29,6 +30,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    version = "^1.0.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",

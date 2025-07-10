@@ -39,18 +39,26 @@ vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>Trouble diagnostics toggle<cr>", { n
 vim.api.nvim_set_keymap("n", "_", "<Plug>(operator-replace)", {})
 
 -- ── winresizer ──────────────────────────────────────────────────────
+vim.g.winrezier_start_key = "<C-s>"
 vim.api.nvim_set_keymap("n", "<C-s>", ":WinResizerStartResize<CR>", opts)
 
 -- ── gitsigns ────────────────────────────────────────────────────────
+local keymap = vim.keymap.set
 vim.api.nvim_set_keymap("n", "<Leader>ph", ":Gitsigns preview_hunk<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>nh", ":Gitsigns next_hunk<CR>", { noremap = true, silent = true })
+local gitsigns = require("gitsigns")
+keymap("v", "<leader>sh", function()
+  gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end)
+keymap("v", "<leader>rh", function()
+  gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end)
 
 -- ── telescope ───────────────────────────────────────────────────────
 vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
 
 -- ── barbar ──────────────────────────────────────────────────────────
-vim.api.nvim_set_keymap("n", "<Leader>y", ":BufferPrevious<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>u", ":BufferNext<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-y>", ":BufferPrevious<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-u>", ":BufferNext<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>bw", ":BufferClose<CR>", opts)
@@ -82,9 +90,7 @@ vim.api.nvim_set_keymap(
   opts
 )
 vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
-vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
-vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>noh<CR>", opts)
 
 -- ── toggleterm(lazygit) ─────────────────────────────────────────────
@@ -154,10 +160,7 @@ keymap({ "n", "v" }, "<Leader>cl", "<Cmd>CBllline<CR>", opts)
 
 -- ── auto-pairs ──────────────────────────────────────────────────────
 
--- Enter をすべて nvim-autopairs に関連付ける
 vim.api.nvim_set_keymap("i", "<CR>", "v:lua.require('nvim-autopairs').autopairs_cr()", { expr = true, noremap = true })
-
--- 純粋な改行を Shift+Enter にマッピング
 vim.api.nvim_set_keymap("i", "<S-CR>", "<CR>", { noremap = true, silent = true })
 local npairs = require("nvim-autopairs")
 local Rule = require("nvim-autopairs.rule")
@@ -172,11 +175,17 @@ npairs.add_rules({
     return opts.char == ">"
   end),
 })
-local gitsigns = require("gitsigns")
-keymap("v", "<leader>sh", function()
-  gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end)
 
-keymap("v", "<leader>rh", function()
-  gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end)
+-- ── diffview ────────────────────────────────────────────────────────
+vim.api.nvim_set_keymap("n", "<Leader>dfo", "<cmd>DiffviewFileHistory<cr>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>dfc", "<cmd>DiffviewClose<cr>", opts)
+
+-- ── vim-operator-convet-case ────────────────────────────────────────
+vim.api.nvim_set_keymap("n", "<Leader>cu", "<Plug>(operator-convert-case-lower-camel)", opts)
+vim.api.nvim_set_keymap("n", "<Leader>cU", "<Plug>(operator-convert-case-upper-camel)", opts)
+vim.api.nvim_set_keymap("n", "<Leader>su", "<Plug>(operator-convert-case-lower-snake)", opts)
+vim.api.nvim_set_keymap("n", "<Leader>sU", "<Plug>(operator-convert-case-upper-snake)", opts)
+
+-- ── git messenger ───────────────────────────────────────────────────
+vim.api.nvim_set_keymap("n", "<Leader>ms", "<cmd>GitMessenger<cr>", opts)
+vim.g.git_messenger_no_default_mappings = true

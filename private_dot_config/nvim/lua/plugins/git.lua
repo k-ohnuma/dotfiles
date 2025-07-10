@@ -13,4 +13,12 @@ return {
       require("plugins_config.blamer")
     end,
   },
+  {
+    "rhysd/git-messenger.vim",
+    event = "BufRead"
+  },
+  {
+    "sindrets/diffview.nvim",
+    event = "BufRead"
+  }
 }

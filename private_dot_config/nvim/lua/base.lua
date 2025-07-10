@@ -30,3 +30,4 @@ if vim.fn.has("persistent_undo") == 1 then
   vim.o.undodir = undo_path
   vim.o.undofile = true
 end
+

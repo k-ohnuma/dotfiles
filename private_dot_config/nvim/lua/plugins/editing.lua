@@ -30,6 +30,11 @@ return {
     dependencies = { "kana/vim-operator-user" },
   },
   {
+    "mopp/vim-operator-convert-case",
+    event = "BufRead",
+    dependencies = { "kana/vim-operator-user" },
+  },
+  {
     "tpope/vim-commentary",
     event = "BufRead",
   },

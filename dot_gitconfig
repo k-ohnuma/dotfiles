@@ -15,7 +15,13 @@
 [gpg "ssh"]
   allowedSignersFile = /Users/user/.ssh/allowed_signers
 
+[commit]
+  gpgsign = true
+
 [alias]
+  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  pushff = push --force-with-lease --force-if-includes
   st = status
   ss = status -s
   ad = add
@@ -34,4 +40,6 @@
   f = fetch
   rb = rebase
   amd = commit --amend --no-edit
-  rst1 = reset --soft HEAD~1
+  res1 = reset HEAD^
+  wip = !git add . && git commit -m 'wip'
+  commitwith = "!sh -c 'git add . && git commit -m \"$1\"' -"

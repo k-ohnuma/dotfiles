@@ -189,3 +189,6 @@ vim.api.nvim_set_keymap("n", "<Leader>sU", "<Plug>(operator-convert-case-upper-s
 -- ── git messenger ───────────────────────────────────────────────────
 vim.api.nvim_set_keymap("n", "<Leader>ms", "<cmd>GitMessenger<cr>", opts)
 vim.g.git_messenger_no_default_mappings = true
+
+-- ── no-neck-pain ───────────────────────────────────────────────────
+vim.api.nvim_set_keymap("n", "<Leader>np", "<cmd>NoNeckPain<cr>", opts)

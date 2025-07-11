@@ -51,4 +51,11 @@ return {
       })
     end,
   },
+  {
+    "shortcuts/no-neck-pain.nvim",
+    event = "BufRead",
+    config = function()
+      require("plugins_config.no-neck-pain")
+    end,
+  }
 }

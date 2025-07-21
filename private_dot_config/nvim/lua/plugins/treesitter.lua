@@ -10,5 +10,5 @@ return {
     "yioneko/nvim-yati",
     event = "VeryLazy",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-  }
+  },
 }

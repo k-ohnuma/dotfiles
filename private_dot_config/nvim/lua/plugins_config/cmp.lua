@@ -11,12 +11,12 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "vsnip" }, 
+    { name = "vsnip" },
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
     { name = "calc" },
-    { name = "buffer", keyword_length = 2 }, 
-    { name = "path" }, 
+    { name = "buffer", keyword_length = 2 },
+    { name = "path" },
   },
   mapping = cmp.mapping.preset.insert({
     ["<C-p>"] = cmp.mapping.select_prev_item(),

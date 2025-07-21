@@ -17,7 +17,6 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    version = "^1.0.0",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("mason").setup({
@@ -30,7 +29,6 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    version = "^1.0.0",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
@@ -43,15 +41,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     cmd = { "LspInfo", "LspInstall", "LspStart" },
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "BufRead",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "neovim/nvim-lspconfig",
-      "jay-babu/mason-null-ls.nvim",
-    },
   },
   {
     "ray-x/lsp_signature.nvim",

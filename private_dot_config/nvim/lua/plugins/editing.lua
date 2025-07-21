@@ -76,4 +76,16 @@ return {
       },
     },
   },
+  {
+    "k-ohnuma/window-swap.nvim",
+    dependencies = {
+      "s1n7ax/nvim-window-picker",
+    },
+    keys = {
+      { "<leader>ps", "<cmd>WinSwap<CR>", desc = "Window swap" },
+    },
+    config = function()
+      require("winswap").setup()
+    end,
+  },
 }

@@ -4,11 +4,11 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
   yati = {
-    enable = true,
+    enable = false,
     default_lazy = true,
-    default_fallback = "auto"
+    default_fallback = "cindent",
   },
   indent = {
-    enable = false -- disable builtin indent module
-  }
+    enable = false, -- disable builtin indent module
+  },
 })

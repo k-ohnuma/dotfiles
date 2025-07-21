@@ -15,10 +15,10 @@ return {
   },
   {
     "rhysd/git-messenger.vim",
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "sindrets/diffview.nvim",
-    event = "BufRead"
-  }
+    event = "BufRead",
+  },
 }

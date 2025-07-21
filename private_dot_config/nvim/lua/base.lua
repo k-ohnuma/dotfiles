@@ -8,7 +8,8 @@ vim.bo.shiftwidth = 2
 vim.o.tabstop = 2
 vim.bo.expandtab = true
 vim.bo.textwidth = 0
-vim.bo.autoindent = true
+vim.bo.autoindent = false
+vim.g.rust_recommended_style = 0
 vim.o.hlsearch = true
 vim.o.clipboard = "unnamedplus"
 vim.o.expandtab = true
@@ -30,4 +31,4 @@ if vim.fn.has("persistent_undo") == 1 then
   vim.o.undodir = undo_path
   vim.o.undofile = true
 end
-
+vim.opt.guicursor:append("a:blinkon0")

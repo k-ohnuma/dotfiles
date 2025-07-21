@@ -57,5 +57,5 @@ return {
     config = function()
       require("plugins_config.no-neck-pain")
     end,
-  }
+  },
 }

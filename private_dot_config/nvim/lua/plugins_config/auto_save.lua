@@ -18,12 +18,12 @@ require("auto-save").setup({
     return false
   end,
   write_all_buffers = false,
-  debounce_delay = 135, 
-  callbacks = { 
-    enabling = nil, 
-    disabling = nil, 
-    before_asserting_save = nil, 
-    before_saving = nil, 
-    after_saving = nil, 
+  debounce_delay = 135,
+  callbacks = {
+    enabling = nil,
+    disabling = nil,
+    before_asserting_save = nil,
+    before_saving = nil,
+    after_saving = nil,
   },
 })

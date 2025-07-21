@@ -1,0 +1,17 @@
+name: chezmoi
+on: 
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+      name: chezmoi
+      runs-on: macos-latest
+      steps:
+        - name: Install chezmoi
+          run: brew install chezmoi
+        - name: Initialize chezmoi
+          run: chezmoi init https://github.com/k-ohnuma/dotfiles.git
+        - name: Apply chezmoi
+          run: chezmoi apply
+

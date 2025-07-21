@@ -9,7 +9,7 @@ return {
     event = "BufRead",
     version = "*",
     opts = {
-      multi_windows = true,
+      multi_windows = false,
     },
     keys = {
       { "<leader>w", "<cmd>HopWord<CR>", mode = "n", desc = "Hop Word" },
@@ -41,7 +41,7 @@ return {
   {
     "Pocco81/auto-save.nvim",
     config = function()
-      require("plugins_config.auto_save")
+      require("plugins.config.edit.auto-save")
     end,
     event = "BufRead",
   },
@@ -61,16 +61,38 @@ return {
       require("hlslens").setup()
     end,
   },
-  { "LudoPinelli/comment-box.nvim" },
-  { "djoshea/vim-autoread" },
-  { "chrisgrieser/nvim-various-textobjs", event = "VeryLazy", opts = { keymaps = { useDefaults = true } } },
+  {
+    "LudoPinelli/comment-box.nvim",
+  },
+  {
+    "djoshea/vim-autoread",
+  },
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    event = "VeryLazy",
+    opts = {
+      keymaps = {
+        useDefaults = true,
+      },
+    },
+  },
   {
     "k-ohnuma/window-swap.nvim",
-    dependencies = { "s1n7ax/nvim-window-picker" },
-    event = "BufReadPre",
-    keys = { { "<leader>ps", "<cmd>WinSwap<CR>", desc = "Window swap" } },
+    dependencies = {
+      "s1n7ax/nvim-window-picker",
+    },
+    keys = {
+      { "<leader>ps", "<cmd>WinSwap<CR>", desc = "Window swap" },
+    },
     config = function()
       require("winswap").setup()
+    end,
+  },
+  {
+    "FotiadisM/tabset.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("plugins.config.edit.tabset")
     end,
   },
 }

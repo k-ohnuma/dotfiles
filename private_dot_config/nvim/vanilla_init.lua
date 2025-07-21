@@ -19,8 +19,8 @@ vim.o.expandtab = true
 vim.wo.cursorline = true
 vim.o.wildmenu = true
 vim.o.title = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
 vim.opt.list = true
 vim.o.pumheight = 15
 vim.opt.shortmess = vim.opt.shortmess + { c = true }

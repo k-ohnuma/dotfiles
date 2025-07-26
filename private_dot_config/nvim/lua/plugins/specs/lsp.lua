@@ -98,4 +98,15 @@ return {
       require("plugins.config.lsp.lspsaga")
     end,
   },
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jay-babu/mason-null-ls.nvim",
+    },
+    event = "BufRead",
+    config = function()
+      require("plugins.config.lsp.none-ls")
+    end,
+  },
 }

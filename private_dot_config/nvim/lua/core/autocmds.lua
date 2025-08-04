@@ -22,3 +22,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end
   end,
 })
+
+vim.api.nvim_create_user_command("E", function()
+  vim.cmd("silent! e")
+  vim.cmd("silent! Gitsigns refresh")
+  vim.cmd("silent! NvimTreeRefresh")
+  vim.cmd("silent! redrawtabline")
+  vim.cmd("silent! redrawstatus")
+end, {})
+
+vim.api.nvim_create_user_command(
+  "VsnipRefresh",
+  "execute 'edit' expand('~/.vsnip/' . &filetype . '.json') | checktime | write | b#",
+  {}
+)

@@ -12,4 +12,3 @@ require("core.autocmds")
 require("core.lazy")
 require("core.keymaps")
 vim.cmd([[colorscheme catppuccin]])
-

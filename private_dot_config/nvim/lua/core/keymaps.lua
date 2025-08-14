@@ -59,6 +59,7 @@ keymap("n", "<C-g>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<C-y>", ":BufferPrevious<CR>", opts)
 keymap("n", "<C-u>", ":BufferNext<CR>", opts)
 keymap("n", "<C-i>", ":b#<CR>", opts)
+keymap("n", "<Leader>bo", ":BufferCloseAllButCurrent<CR>", opts)
 
 -- ── lspsaga ──────────────────────────────────────────────────
 keymap("n", "<Leader>t", "<cmd>Lspsaga hover_doc<CR>", opts)

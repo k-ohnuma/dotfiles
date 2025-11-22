@@ -1,0 +1,28 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[settings.pipx]
+uvx = true
+
+[tools]
+"aqua:jesseduffield/lazygit" = "latest"
+awscli = "latest"
+bun = "latest"
+"cargo:cargo-nextest" = "latest"
+"cargo:sqlx-cli" = "0.7.3"
+"cargo:taplo-cli" = "latest"
+deno = "latest"
+fzf = "latest"
+"github:BurntSushi/ripgrep" = "latest"
+go = "latest"
+"go:github.com/google/yamlfmt/cmd/yamlfmt" = "latest"
+node = "22.11.0"
+"npm:@biomejs/biome" = "latest"
+"npm:aws-cdk" = "latest"
+"npm:serverless" = "latest"
+"pipx:httpie" = "latest"
+pnpm = "latest"
+python = "latest"
+rust = "1.89.0"
+rust-analyzer = "2024-10-14"
+uv = "latest"

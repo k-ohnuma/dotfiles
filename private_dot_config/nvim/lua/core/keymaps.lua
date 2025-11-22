@@ -24,11 +24,7 @@ keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 keymap("n", "ya", ":%y<CR>", opts)
 keymap("v", "v", "<C-v>", opts)
-
--- ── formatter ─────────────────────────────────────────────────────────
-keymap("n", "<Leader>;", function()
-  vim.lsp.buf.format({ async = true })
-end, opts)
+keymap("n", "<Tab>", "<Nop>", opts)
 
 -- ── nvim-tree ─────────────────────────────────────────────────
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
@@ -141,3 +137,4 @@ keymap("n", "<Leader>ms", "<cmd>GitMessenger<CR>", opts)
 
 -- ── no-neck-pain ─────────────────────────────────────────────
 keymap("n", "<Leader>np", "<cmd>NoNeckPain<CR>", opts)
+

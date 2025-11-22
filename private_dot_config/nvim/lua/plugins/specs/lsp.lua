@@ -99,14 +99,29 @@ return {
     end,
   },
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jay-babu/mason-null-ls.nvim",
-    },
-    event = "BufRead",
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("plugins.config.lsp.none-ls")
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { "biome" },
+          typescript = { "biome" },
+          javascriptreact = { "biome" },
+          typescriptreact = { "biome" },
+          json = { "biome" },
+          yaml = { "yamlfmt" },
+          markdown = { "prettier" },
+          toml = { "taplo" },
+        },
+      })
+
+      vim.keymap.set("n", "<leader>;", function()
+        require("conform").format({
+          timeout_ms = 3000,
+          lsp_fallback = true,
+        })
+      end)
     end,
   },
 }

@@ -5,6 +5,13 @@ return {
     config = true,
   },
   {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function()
+      require("plugins.config.edit.autotag")
+    end,
+  },
+  {
     "smoka7/hop.nvim",
     event = "BufRead",
     version = "*",
@@ -35,8 +42,23 @@ return {
     dependencies = { "kana/vim-operator-user" },
   },
   {
-    "tpope/vim-commentary",
-    event = "BufRead",
+    "numToStr/Comment.nvim",
+    keys = {
+      { "gcc", mode = "n" },
+    },
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end,
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    config = function()
+      require("ts_context_commentstring").setup({
+        enable_autocmd = false,
+      })
+    end,
   },
   {
     "Pocco81/auto-save.nvim",
@@ -93,6 +115,13 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("plugins.config.edit.tabset")
+    end,
+  },
+  {
+    "k-ohnuma/md-accordion.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("md-accordion").setup()
     end,
   },
 }

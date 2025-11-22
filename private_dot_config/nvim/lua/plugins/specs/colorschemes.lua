@@ -17,5 +17,5 @@ return {
         tint_background_colors = false,
       })
     end,
-  },
+  }
 }

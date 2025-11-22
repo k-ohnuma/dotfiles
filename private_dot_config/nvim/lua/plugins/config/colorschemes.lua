@@ -29,4 +29,3 @@ require("catppuccin").setup({
     }
   end,
 })
-

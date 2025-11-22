@@ -25,6 +25,7 @@ keymap("n", "k", "gk", opts)
 keymap("n", "ya", ":%y<CR>", opts)
 keymap("v", "v", "<C-v>", opts)
 keymap("n", "<Tab>", "<Nop>", opts)
+keymap("n", "<C-i>", "<Nop>", opts)
 
 -- ── nvim-tree ─────────────────────────────────────────────────
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
@@ -54,7 +55,6 @@ keymap("n", "<C-g>", "<cmd>Telescope live_grep<CR>", opts)
 -- ── barbar ────────────────────────────────────────────────────
 keymap("n", "<C-y>", ":BufferPrevious<CR>", opts)
 keymap("n", "<C-u>", ":BufferNext<CR>", opts)
-keymap("n", "<C-i>", ":b#<CR>", opts)
 keymap("n", "<Leader>bo", ":BufferCloseAllButCurrent<CR>", opts)
 
 -- ── lspsaga ──────────────────────────────────────────────────

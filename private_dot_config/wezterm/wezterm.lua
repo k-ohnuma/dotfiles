@@ -31,7 +31,7 @@ config.window_decorations = "RESIZE"
 local COLOR_SCHEME = "Tokyo Night Moon"
 config.color_scheme = COLOR_SCHEME
 -- 背景の非透過率（1なら完全に透過させない）
-config.window_background_opacity = 0.93
+config.window_background_opacity = 1
 config.macos_window_background_blur = 0
 
 config.adjust_window_size_when_changing_font_size = true
@@ -58,6 +58,8 @@ config.keys = {
     key = "¥",
     action = wezterm.action.SendKey({ key = "\\" }),
   },
+  { key = 'u', mods = 'CMD', action = wezterm.action.ActivateTabRelative(1) },
+  { key = 'y', mods = 'CMD', action = wezterm.action.ActivateTabRelative(-1) },
   -- ペイン移動
   {
     key = "h",

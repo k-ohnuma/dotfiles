@@ -6,24 +6,10 @@
 
 echo "start"
 
-## ╭─────────────────────────────────────────────────────────╮
-## │ install cmd                                             │
-## ╰─────────────────────────────────────────────────────────╯
-
 brew install \
   wget \
   mise \
 
-## ╭─────────────────────────────────────────────────────────╮
-## │ nvim build                                              │
-## │ version: 0.11.3                                         │
-## ╰─────────────────────────────────────────────────────────╯
-
-curl -LO https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-arm64.tar.gz
-tar xzvf nvim-macos-arm64.tar.gz
-mkdir -p ~/.local/bin/ && mv nvim-macos-arm64 ~/.local/bin/
-ln -s ~/.local/bin/nvim-macos-arm64/bin/nvim ~/.local/bin/nvim
-rm nvim-macos-arm64.tar.gz
 # fish -c "fish_add_path ~/.local/bin/"
 
 {{ end }}

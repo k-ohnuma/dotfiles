@@ -8,7 +8,9 @@ uvx = true
 "aqua:jesseduffield/lazygit" = "latest"
 awscli = "latest"
 bun = "latest"
+"cargo:cargo-equip" = "latest"
 "cargo:cargo-nextest" = "latest"
+"cargo:cargo-udeps" = "latest"
 "cargo:sqlx-cli" = "0.7.3"
 "cargo:taplo-cli" = "latest"
 deno = "latest"
@@ -28,3 +30,21 @@ python = "latest"
 rust = "1.89.0"
 rust-analyzer = "2025-11-10"
 uv = "latest"
+
+[tasks.eq]
+run = '''
+cargo equip --remove docs --remove comments --minify libs --no-check ${usage_bin:+--bin "${usage_bin}"} > submit.rs
+'''
+usage = '''
+arg "<bin>" default=""
+'''
+description = "equip for library checker"
+
+[tasks.eqq]
+run = '''
+cargo equip --exclude ac-library-rs --exclude itertools --exclude num --exclude num-bigint --exclude num-decimal --exclude proconio  --exclude rust-decimal --exclude superslice --exclude regex --exclude num-traits --exclude regex --exclude easy-ext --remove docs --remove comments --minify libs --no-check ${usage_bin:+--bin "${usage_bin}"} > submit.rs
+'''
+usage = '''
+arg "<bin>" default=""
+'''
+description = "equip for atcoder"

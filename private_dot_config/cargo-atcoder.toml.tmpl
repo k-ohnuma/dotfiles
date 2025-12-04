@@ -1,0 +1,44 @@
+[atcoder]
+submit_via_binary = false # submit via binary by default
+use_cross = false         # use `cross` instead of `cargo` when generating binaries
+binary_column = 80        # maximum column number of generated binary (0 for no wrapping)
+update_interval = 1000    # interval time of fetching result (ms)
+strip_path = "strip"      # specify `strip` command path. NOTE: if you use macOS, you have to install GNU strip and specify its path here.
+
+[profile]
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+target = "aarch64-apple-darwin"
+{{- else }}
+target = "x86_64-unknown-linux-musl"
+{{- end }}
+
+[profile.release]
+lto = true
+panic = 'abort'
+
+# dependencies added to new project
+[dependencies]
+ac-library-rs = "0.1.1"
+itertools = "0.12.1"
+num = "0.4.1"
+num-bigint = "0.4.4"
+num-decimal = "0.2.5"
+proconio = { version = "0.4.5", features = ["derive"] }
+rust_decimal = "1.34.3"
+superslice = "1.0.0"
+regex = "1.10.4"
+num-traits = "0.2.19"
+ordered-float = "5.0.0"
+easy-ext = "1.0.2"
+rand = "0.8.5"
+rand_pcg = "0.3.1"
+
+
+[project]
+# to create `rust-toolchain` file, uncomment this line.
+# rustc_version = "1.15.1"
+
+# source code template
+template = """
+{{ .cargo_atcoder_template -}}
+"""

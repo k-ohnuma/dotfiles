@@ -113,7 +113,7 @@ config.keys = {
     action = wezterm.action.AdjustPaneSize({ "Right", 8 }),
   },
   { key = "[", mods = "LEADER", action = act.ActivateCopyMode },
-  {{- if eq .chezmoi.osRelease.id "linuxmint" }}
+  {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}
   {
       key = "c",
       mods = "CTRL",

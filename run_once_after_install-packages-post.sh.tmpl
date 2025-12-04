@@ -14,7 +14,7 @@ echo "TODO:"
 echo "neovimのpluginをinstallする"
 exit 0
 
-{{- else if eq .chezmoi.osRelease.id "linuxmint" }}
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}
 
 echo "TODO:"
 echo "fusuma, (あるんだったら)xinputの設定を行う"

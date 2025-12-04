@@ -1,5 +1,7 @@
 {{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") -}}
 vim.o.shell = "/opt/homebrew/bin/fish"
+{{- else if eq .chezmoi.osRelease.id "linuxmint" -}}
+vim.o.shell = "/home/linuxbrew/.linuxbrew/bin/fish"
 {{- end }}
 vim.opt.autoread = true
 vim.wo.number = true

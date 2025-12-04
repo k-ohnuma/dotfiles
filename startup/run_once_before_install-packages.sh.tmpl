@@ -1,0 +1,80 @@
+#!/bin/sh
+
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+
+missing=0
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "ERROR: Homebrew (brew) is not installed." >&2
+  missing=1
+fi
+
+if ! command -v fish >/dev/null 2>&1; then
+  echo "ERROR: fish shell is not installed." >&2
+  missing=1
+fi
+
+current_shell="${SHELL:-}"
+if [ "$(basename "$current_shell")" != "fish" ]; then
+  echo "ERROR: Default shell is not fish. Current: $current_shell" >&2
+  missing=1
+fi
+
+if ! command -v mise >/dev/null 2>&1; then
+  echo "ERROR: mise is not installed." >&2
+  missing=1
+fi
+
+if [ "$missing" -ne 0 ]; then
+  exit 1
+fi
+
+echo "OK: All requirements satisfied for macos"
+
+brew install \
+  git wget \
+  gcc cmake ninja pkg-config \
+  fd fzf
+
+mise install
+
+echo "OK: before setup install completed"
+exit 0
+
+{{- else if eq .chezmoi.os "linux" }}
+
+missing=0
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "ERROR: Homebrew (brew) is not installed." >&2
+  missing=1
+fi
+
+if ! command -v fish >/dev/null 2>&1; then
+  echo "ERROR: fish shell is not installed." >&2
+  missing=1
+fi
+
+current_shell="${SHELL:-}"
+if [ "$(basename "$current_shell")" != "fish" ]; then
+  echo "ERROR: Default shell is not fish. Current: $current_shell" >&2
+  missing=1
+fi
+
+if ! command -v mise >/dev/null 2>&1; then
+  echo "ERROR: mise is not installed." >&2
+  missing=1
+fi
+
+if [ "$missing" -ne 0 ]; then
+  exit 1
+fi
+
+echo "OK: All requirements satisfied for Linux."
+exit 0
+
+{{ else }}
+# Other OS
+echo "ERROR: No environment validation required for this OS."
+exit 1
+{{ end }}

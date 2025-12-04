@@ -1,0 +1,19 @@
+#!/bin/sh
+
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+
+ln -s ~/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
+ln -s ~/.config/cargo-atcoder.toml ~/Library/Application\ Support/cargo-atcoder.toml
+
+echo "TODO:"
+echo "neovimのpluginをinstallする"
+exit 0
+
+{{- else if eq .chezmoi.os "linux" }}
+
+
+{{ else }}
+echo "INFO: No environment validation required for this OS."
+exit 0
+{{ end }}
+

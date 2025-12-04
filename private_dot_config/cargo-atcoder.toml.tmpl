@@ -42,3 +42,8 @@ rand_pcg = "0.3.1"
 template = """
 {{ .cargo_atcoder_template -}}
 """
+
+{{ if eq .chezmoi.os "darwin" }}
+# ln -s ~/.config/cargo-atcoder.toml ~/Library/Application\ Support/cargo-atcoder.toml
+{{- end }}
+

@@ -22,6 +22,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 set -x PATH "/Applications/WezTerm.app/Contents/MacOS" $PATH
 {{- end }}
 
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+{{- end }}
+
 set -x PATH "$HOME/.local/bin" $PATH
 set -gx PATH $HOME/.local/share/mise/shims $PATH
 

@@ -14,8 +14,13 @@ echo "TODO:"
 echo "neovimのpluginをinstallする"
 exit 0
 
-{{- else if eq .chezmoi.os "linux" }}
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}
 
+echo "TODO:"
+echo "fusuma, (あるんだったら)xinputの設定を行う"
+echo "see: https://qiita.com/haw_ohnuma/items/d5f49a726789a4601ef5"
+echo "neovimのpluginをinstallする"
+exit 0
 
 {{ else }}
 echo "INFO: No environment validation required for this OS."

@@ -1,0 +1,9 @@
+git:
+  overrideGpg: true
+gui:
+  language: "ja"
+  showIcons: true
+
+{{ if eq .chezmoi.os "darwin" }}
+# ln -s ~/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
+{{- end }}

@@ -1,0 +1,49 @@
+{
+  "_init_cdk_stack": {
+    "prefix": "_init_cdk_stack",
+    "body": [
+      "import { Duration, Stack, StackProps } from \"aws-cdk-lib\";",
+      "import { Runtime } from \"aws-cdk-lib/aws-lambda\";",
+      "import { NodejsFunction } from \"aws-cdk-lib/aws-lambda-nodejs\";",
+      "import { Construct } from \"constructs\";",
+      "import { Config } from \"./config\";",
+      "",
+      "export class SampleStack extends Stack {",
+      "  constructor(scope: Construct, id: string, props: StackProps, config: Config) {",
+      "    super(scope, id, props);",
+      "",
+      "    const labmda = new NodejsFunction(this, \"lambda\", {",
+      "      functionName: ``,",
+      "      runtime: Runtime.NODEJS_22_X,",
+      "      timeout: Duration.seconds(30),",
+      "    });",
+      "",
+      "    const apiGateway = new RestApi(this, \"apigateway\", {",
+      "      restApiName: ``,",
+      "      deployOptions: {",
+      "        stageName: config.env,",
+      "      },",
+      "      defaultCorsPreflightOptions: {",
+      "        allowOrigins: Cors.ALL_ORIGINS,",
+      "        allowMethods: Cors.ALL_METHODS,",
+      "        allowHeaders: Cors.DEFAULT_HEADERS,",
+      "      },",
+      "    });",
+      "    apiGateway.root.addMethod(\"POST\", new LambdaIntegration(upsert, { allowTestInvoke: false }));",
+      "    apiGateway.root.addMethod(\"GET\", new LambdaIntegration(get, { allowTestInvoke: false }));",
+      "  }",
+      "}"
+    ]
+  },
+  "_init_lambda_handler": {
+    "prefix": "_init_lambda_handler",
+    "body": [
+      "import { Handler } from \"aws-lambda\";",
+      "",
+      "export const handler: Handler = async (_event) => {",
+      "  return 0;",
+      "};"
+    ],
+    "description": ""
+  }
+}

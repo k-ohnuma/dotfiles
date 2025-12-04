@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -n "${CI:-}" ]; then
+  echo "skip startup (because: CI)"
+  exit 0
+fi
+
 {{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
 
 ln -s ~/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml

@@ -8,5 +8,9 @@
 .config/karabiner/*
 !.config/karabiner/karabiner.json
 {{- else if eq .chezmoi.osRelease.id "linuxmint" }}
-.config/karabiner/*
+.config/karabiner
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+autostart
 {{- end }}

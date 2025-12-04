@@ -1,0 +1,49 @@
+[user]
+  name = {{ .name }}
+  email = {{ .email }}
+  signingkey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub"
+
+[http]
+  postBuffer = 500M
+  maxRequestBuffer = 100M
+
+[cure]
+  compression = 0
+
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
+
+[commit]
+  gpgsign = true
+
+[alias]
+  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  pushff = push --force-with-lease --force-if-includes
+  st = status
+  ss = status -s
+  ad = add
+  cm = commit
+  stt = status -uno
+  df = diff --color-words
+  dc = diff --cached
+  dp = diff --no-prefix
+  d1 = diff HEAD~
+  d2 = diff HEAD~~
+  d3 = diff HEAD~~~
+  d4 = diff HEAD~~~~
+  co = checkout
+  cob = checkout -b
+  br = branch
+  f = fetch
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  amd = commit --amend --no-edit
+  res1 = reset HEAD^
+  wip = !git add . && git commit -m 'wip'
+  commitwith = "!sh -c 'git add . && git commit -m \"$1\"' -"
+[init]
+  defaultBranch = main

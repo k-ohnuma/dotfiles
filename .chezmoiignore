@@ -3,3 +3,8 @@
 !.config/fish/functions
 .config/fish/functions/*
 !.config/fish/functions/fish_user_key_bindings.fish
+
+{{- if eq .chezmoi.os "darwin" }}
+.config/karabiner/*
+!.config/karabiner/karabiner.json
+{{- end }}

@@ -1,0 +1,22 @@
+{
+  "keyMappings": "unmap d\nunmap J\nunmap K\nunmap b\nunmap o\n\nmap <c-y> previousTab\nmap <c-u> nextTab\n\nmap dd removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap  <c-h> goBack\nmap  <c-l> goForward\n\nmap bo closeOtherTabs\nmap <c-g> Vomnibar.activateInNewTab\nmap <c-e> Vomnibar.activateEditUrlInNewTab",
+  "settingsVersion": "2.3",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://www.e-typing.ne.jp/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://sushida.net/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://untyping.jp/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://remap-keys.app/*"
+    }
+  ]
+}

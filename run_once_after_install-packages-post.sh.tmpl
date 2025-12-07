@@ -10,12 +10,25 @@ fi
 ln -s ~/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
 ln -s ~/.config/cargo-atcoder.toml ~/Library/Application\ Support/cargo-atcoder.toml
 
+{{ if eq .mise_install "true" }}
+
+mise install
+
+{{ end -}}
+
+
 echo "TODO:"
 echo "-[ ] neovimのpluginをinstallする"
 echo "-[ ] install raycast"
 exit 0
 
 {{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}
+
+{{ if eq .mise_install "true" }}
+
+mise install
+
+{{ end -}}
 
 echo "TODO:"
 echo "-[ ] fusuma, (あるんだったら)xinputの設定を行う"

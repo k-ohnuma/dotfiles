@@ -51,12 +51,6 @@ brew install \
 
 {{ end -}}
 
-{{ if eq .mise_install "true" }}
-
-mise install
-
-{{ end -}}
-
 echo "OK: before setup install completed"
 
 {{ if eq .neovim_install "true" -}}
@@ -150,11 +144,6 @@ sudo apt-get install -y \
 {{ end -}}
 
 
-{{ if eq .mise_install "true" }}
-
-mise install
-
-{{ end -}}
 
 echo "OK: before setup install completed"
 

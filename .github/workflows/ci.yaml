@@ -26,6 +26,12 @@ jobs:
           """
           name = "name"
           email = "mail"
+          brew_install = "false"
+          mise_install = "false"
+          neovim_install = "false"
+          neovim_version = "v0.11.5"
+          font_install = "false"
+          apt_install = "false"
           EOF
 
       - name: Install chezmoi

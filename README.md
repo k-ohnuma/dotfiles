@@ -54,7 +54,7 @@ Install:
 brew install mise
 ```
 
-Create ~/.config/chezmoi/chezmoi.toml
+## Create ~/.config/chezmoi/chezmoi.toml
 
 Create the following file and set the keys below as needed:
 

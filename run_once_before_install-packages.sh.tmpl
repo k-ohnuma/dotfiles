@@ -1,5 +1,11 @@
 #!/bin/sh
 
+CONFIG_PATH="{{ .chezmoi.homeDir }}/.config/chezmoi/chezmoi.toml"
+if [ ! -e "$CONFIG_PATH" ]; then
+  echo "$CONFIG_PATH not exist" >&2
+  exit 1
+fi
+
 if [ -n "${CI:-}" ]; then
   echo "skip startup (because: CI)"
   exit 0

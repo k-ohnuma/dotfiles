@@ -86,6 +86,8 @@ ln -s ~/.local/share/nvim-macos-arm64/bin/nvim ~/.local/bin/nvim
 curl -LO https://github.com/yuru7/bizin-gothic/releases/download/v0.0.4/BizinGothicNF_v0.0.4.zip
 unzip BizinGothicNF_v0.0.4.zip
 mv ./BizinGothicNF_v0.0.4/BizinGothicNF-Regular.ttf ~/Library/Fonts/.
+rm BizinGothicNF_v0.0.4.zip
+rm -rf BizinGothicNF_v0.0.4
 
 {{ end -}}
 
@@ -171,6 +173,17 @@ mkdir -p ~/.local/share
 
 mv ./nvim-linux-x86_64 ~/.local/share/.
 ln -s ~/.local/share/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
+
+{{ end -}}
+
+{{ if eq .font_install "true" }}
+
+curl -LO https://github.com/yuru7/bizin-gothic/releases/download/v0.0.4/BizinGothicNF_v0.0.4.zip
+unzip BizinGothicNF_v0.0.4.zip
+mkdir -p ~/.local/share/fonts
+mv ./BizinGothicNF_v0.0.4/BizinGothicNF-Regular.ttf ~/.local/share/fonts/.
+rm BizinGothicNF_v0.0.4.zip
+rm -rf BizinGothicNF_v0.0.4
 
 {{ end -}}
 

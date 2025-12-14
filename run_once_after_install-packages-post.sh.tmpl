@@ -16,6 +16,25 @@ mise install
 
 {{ end -}}
 
+mkdir -p ~/Desktop/ss
+defaults write com.apple.screencapture location ~/Desktop/ss
+
+echo "autometerにスクショ自動リネームのシェルスクリプトを追加する"
+
+cat <<'EOF'
+#!/bin/zsh
+
+for f in "$@"; do
+  dir="${f:h}"
+  epoch="$(stat -f '%B' "$f")"
+  ts="$(date -r "$epoch" '+%Y%m%d%H%M%S')"
+
+  dst="$dir/ss_$ts.png"
+
+  echo "mv: $f -> $dst"
+  mv -- "$f" "$dst"
+done
+EOF
 
 echo "TODO:"
 echo "-[ ] neovimのpluginをinstallする"

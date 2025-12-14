@@ -49,8 +49,8 @@ keymap("v", "<Leader>rh", function()
 end, opts)
 
 -- ── telescope ────────────────────────────────────────────────
-keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<C-g>", "<cmd>Telescope live_grep<CR>", opts)
+-- keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
+-- keymap("n", "<C-g>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- ── barbar ────────────────────────────────────────────────────
 keymap("n", "<C-y>", ":BufferPrevious<CR>", opts)
@@ -136,5 +136,5 @@ vim.g.git_messenger_no_default_mappings = true
 keymap("n", "<Leader>ms", "<cmd>GitMessenger<CR>", opts)
 
 -- ── no-neck-pain ─────────────────────────────────────────────
-keymap("n", "<Leader>np", "<cmd>NoNeckPain<CR>", opts)
+-- keymap("n", "<Leader>np", "<cmd>NoNeckPain<CR>", opts)
 

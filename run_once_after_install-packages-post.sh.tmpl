@@ -14,6 +14,10 @@ ln -s ~/.config/cargo-atcoder.toml ~/Library/Application\ Support/cargo-atcoder.
 
 mise install
 
+# miseが入んなきゃcargoも入らないので
+# tree-sitter-cliを入れる。nodeバージョンが22だとエラー吐いた
+cargo install tree-sitter-cli --version 0.25.10
+
 {{ end -}}
 
 mkdir -p ~/Desktop/ss

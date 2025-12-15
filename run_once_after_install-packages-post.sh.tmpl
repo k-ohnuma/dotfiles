@@ -23,7 +23,6 @@ cargo install tree-sitter-cli --version 0.25.10
 mkdir -p ~/Desktop/ss
 defaults write com.apple.screencapture location ~/Desktop/ss
 
-echo "autometerにスクショ自動リネームのシェルスクリプトを追加する"
 
 cat <<'EOF'
 #!/bin/zsh
@@ -43,6 +42,8 @@ EOF
 echo "TODO:"
 echo "-[ ] neovimのpluginをinstallする"
 echo "-[ ] install raycast"
+echo "-[ ] autometerにスクショ自動リネームのシェルスクリプトを追加する(↑シェルスクリプト)"
+echo "-[ ] oj-apiそのまま使うとKiB, Mibの表記揺れでエラー吐くので注意。エラーログみてファイル特定してelif追加して自分で直せ"
 exit 0
 
 {{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}

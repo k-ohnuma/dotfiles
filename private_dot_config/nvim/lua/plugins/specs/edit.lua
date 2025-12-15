@@ -65,7 +65,6 @@ return {
     config = function()
       require("plugins.config.edit.auto-save")
     end,
-    event = "BufRead",
   },
   {
     "Wansmer/treesj",

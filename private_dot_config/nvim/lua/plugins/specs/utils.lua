@@ -147,4 +147,11 @@ return {
       { "<leader>z", "<cmd>PasteImage<cr>", desc = "Save clipboard image to cwd" },
     },
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    config = function()
+      require("plugins.config.utils.render-markdown")
+    end,
+  },
 }

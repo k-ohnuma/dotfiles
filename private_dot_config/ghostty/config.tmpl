@@ -1,0 +1,65 @@
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+macos-titlebar-style = tabs
+macos-window-buttons = hidden
+macos-option-as-alt = false
+
+font-family = "Bizin Gothic NF"
+font-size = 15
+theme = Ayu Mirage
+
+cursor-style = block
+cursor-color = f0fcff
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+window-show-tab-bar = never
+background-opacity = 0.9
+quick-terminal-position = center
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.3
+
+keybind = cmd+u=next_tab
+keybind = cmd+y=previous_tab
+keybind = ctrl+b>-=new_split:down
+keybind = ctrl+b>alt+\=new_split:right
+keybind = alt+l=goto_split:right
+keybind = alt+k=goto_split:up
+keybind = alt+j=goto_split:down
+keybind = alt+h=goto_split:left
+keybind = global:ctrl+shift+tab=toggle_quick_terminal
+
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "linuxmint") }}
+font-family = "Bizin Gothic NF"
+font-size = 15
+theme = Ayu Mirage
+
+cursor-style = block
+cursor-color = f0fcff
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+window-decoration=none
+window-show-tab-bar = auto
+background-opacity = 0.9
+
+quick-terminal-position = center
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.3
+
+keybind = super+u=next_tab
+keybind = super+y=previous_tab
+keybind = ctrl+b>-=new_split:down
+keybind = ctrl+b>\=new_split:right
+keybind = alt+l=goto_split:right
+keybind = alt+k=goto_split:up
+keybind = alt+j=goto_split:down
+keybind = alt+h=goto_split:left
+keybind = global:ctrl+shift+tab=toggle_quick_terminal
+keybind = ctrl+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard
+keybind = super+w=close_tab:this
+keybind = super+t=new_tab
+keybind = super+;=increase_font_size:1
+keybind = super+-=decrease_font_size:1
+
+{{ end -}}

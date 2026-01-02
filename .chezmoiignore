@@ -5,6 +5,12 @@ README.md
 .config/fish/functions/*
 !.config/fish/functions/fish_user_key_bindings.fish
 
+dev/atcoder/compete/*
+!dev/atcoder/compete/compete.toml
+
+dev/atcoder/virtual/*
+!dev/atcoder/virtual/compete.toml
+
 {{- if eq .chezmoi.os "darwin" }}
 .config/karabiner/*
 !.config/karabiner/karabiner.json

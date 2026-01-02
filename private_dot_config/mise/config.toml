@@ -83,3 +83,14 @@ description = "cargo compete login atcoder. alias: login"
 alias = "login"
 
 
+[tasks."compete:new"]
+run = '''
+cargo compete new ${usage_id}
+'''
+usage = '''
+arg "<id>" default=""
+'''
+description = "cargo compete new. alias: new"
+alias = "new"
+
+

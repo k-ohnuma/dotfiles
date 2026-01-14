@@ -24,6 +24,9 @@ set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 
 {{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+for c in awk grep find xargs date sed stat timeout realtpath readlink sort uniq cut tr wc head tail
+    alias $c g$c
+end
 eval "$(/opt/homebrew/bin/brew shellenv)"
 set -x PATH "/Applications/WezTerm.app/Contents/MacOS" $PATH
 {{- end }}

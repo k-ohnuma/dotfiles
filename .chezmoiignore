@@ -4,6 +4,7 @@ README.md
 !.config/fish/functions
 .config/fish/functions/*
 !.config/fish/functions/fish_user_key_bindings.fish
+!.config/fish/functions/ncc.fish
 
 dev/atcoder/compete/*
 !dev/atcoder/compete/compete.toml

@@ -12,6 +12,7 @@ bun = "latest"
 "cargo:cargo-equip" = "latest"
 "cargo:cargo-nextest" = "latest"
 "cargo:cargo-udeps" = "latest"
+"cargo:sheldon" = "0.8.5"
 "cargo:sqlx-cli" = "0.7.3"
 "cargo:taplo-cli" = "latest"
 deno = "latest"
@@ -31,6 +32,7 @@ python = "latest"
 rust = "1.89.0"
 rust-analyzer = "2025-11-10"
 uv = "latest"
+zoxide = "0.9.8"
 
 [tasks.equiq]
 run = '''

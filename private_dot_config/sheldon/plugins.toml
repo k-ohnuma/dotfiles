@@ -1,0 +1,19 @@
+shell = "zsh"
+
+[plugins.autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+
+[plugins.zoxide]
+github = "ajeetdsouza/zoxide"
+
+# [plugins.zeno]
+# github = "yuki-yano/zeno.zsh"
+
+[plugins.vi]
+github = "jeffreytse/zsh-vi-mode"

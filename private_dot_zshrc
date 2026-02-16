@@ -1,0 +1,17 @@
+ZSH_CONFIG="$HOME/.config/zsh"
+
+autoload -Uz compinit
+compinit
+
+for f in \
+  env.zsh \
+  aliases.zsh \
+  prompt.zsh \
+  plugins.zsh
+do
+  [[ -f "$ZSH_CONFIG/$f" ]] && source "$ZSH_CONFIG/$f"
+done
+
+
+eval "$(sheldon source)"
+eval "$(zoxide init zsh)"

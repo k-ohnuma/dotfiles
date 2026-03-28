@@ -7,8 +7,8 @@ vim.g.mapleader = " "
 vim.o.encoding = "utf-8"
 vim.scriptencoding = "utf-8"
 
-require("core.options")
-require("core.autocmds")
-require("core.lazy")
-require("core.keymaps")
+require("config.options")
+require("config.autocmds")
+require("config.lazy")
+require("config.keymaps")
 vim.cmd([[colorscheme catppuccin]])

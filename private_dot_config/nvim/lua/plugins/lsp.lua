@@ -19,12 +19,7 @@ return {
     "williamboman/mason.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("mason").setup({
-        ensure_installed = {
-          "rust-analyzer",
-        },
-        PATH = "append",
-      })
+      require("plugins.config.mason")
     end,
   },
   {
@@ -35,7 +30,7 @@ return {
       "neovim/nvim-lspconfig",
     },
     config = function()
-      require("plugins.config.lsp.lsp")
+      require("plugins.config.lsp-config")
     end,
   },
   {
@@ -49,9 +44,7 @@ return {
       toggle_key = "<c-f>",
       toggle_key_flip_floatwin_setting = true,
     },
-    config = function(_, opts)
-      require("lsp_signature").setup(opts)
-    end,
+    config = require("plugins.config.lsp-signature"),
   },
   {
     "folke/trouble.nvim",
@@ -94,34 +87,27 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     event = "BufRead",
+    keys = {
+      { "<Leader>t", "<cmd>Lspsaga hover_doc<CR>", mode = "n" },
+      { "gf", "<cmd>Lspsaga lsp_finder<CR>", mode = "n" },
+      { "gd", "<cmd>Lspsaga peek_definition<CR>", mode = "n" },
+      { "gt", "<cmd>Lspsaga peek_type_definition<CR>", mode = "n" },
+      { "ga", "<cmd>Lspsaga code_action<CR>", mode = "n" },
+      { "gr", "<cmd>Lspsaga rename<CR>", mode = "n" },
+      { "sagat", "<cmd>Lspsaga term_toggle<CR>", mode = "n" },
+      { "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", mode = "n" },
+      { "g[", "<cmd>Lspsaga diagnostic_jump_next<CR>", mode = "n" },
+      { "g]", "<cmd>Lspsaga diagnostic_jump_prev<CR>", mode = "n" },
+    },
     config = function()
-      require("plugins.config.lsp.lspsaga")
+      require("plugins.config.lsp-saga")
     end,
   },
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("conform").setup({
-        formatters_by_ft = {
-          lua = { "stylua" },
-          javascript = { "biome" },
-          typescript = { "biome" },
-          javascriptreact = { "biome" },
-          typescriptreact = { "biome" },
-          json = { "biome" },
-          yaml = { "yamlfmt" },
-          markdown = { "prettier" },
-          toml = { "taplo" },
-        },
-      })
-
-      vim.keymap.set("n", "<leader>;", function()
-        require("conform").format({
-          timeout_ms = 3000,
-          lsp_fallback = true,
-        })
-      end)
+      require("plugins.config.conform")
     end,
   },
 }

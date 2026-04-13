@@ -25,6 +25,7 @@ return {
     "nvim-tree/nvim-tree.lua",
     config = function()
       require("plugins.config.nvim-tree")
+      vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
     end,
   },
   {
